@@ -72,6 +72,7 @@ class _RightScreenState extends State<RightScreen> {
                       fontSize: 40,
                       fontWeight: FontWeight.w500,
                       color: Color(0xFF00BFFF),
+                      height: 1,
                     ),
                   ),
                   trailing: Switch(
