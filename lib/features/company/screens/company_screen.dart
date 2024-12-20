@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 import 'package:jinee_mobile_access/features/company/controllers/company_controller.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_card_text.dart';
+import 'package:jinee_mobile_access/widgets/app_card_text.dart';
 import 'package:jinee_mobile_access/features/company/screens/add_edit_company_screen.dart';
 
 class CompanyScreen extends StatelessWidget {
@@ -19,10 +21,22 @@ class CompanyScreen extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
+          backgroundColor: kColorWhite,
           appBar: AppBar(
-            title: const CustomText(
-              title: 'Companies',
-              fontSize: 40,
+            backgroundColor: kColorWhite,
+            title: Text(
+              'Companies',
+              style: TextStyles.kSemiBoldMontserrat(
+                fontSize: FontSize.k24FontSize,
+              ),
+            ),
+            leading: IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: kColorBlack,
+                size: 20,
+              ),
             ),
             actions: [
               IconButton(
@@ -39,15 +53,14 @@ class CompanyScreen extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.add,
+                  color: kColorBlack,
+                  size: 25,
                 ),
               ),
             ],
           ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
-            ),
+            padding: AppPaddings.p16,
             child: Obx(
               () => ListView.builder(
                 itemCount: _controller.companies.length,
@@ -73,41 +86,32 @@ class CompanyScreen extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF00FFFF),
-                                Color(0xFF00BFFF),
-                              ],
+                        Card(
+                          elevation: 5,
+                          color: kColorBackground,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            side: const BorderSide(
+                              color: kColorPrimary,
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFF00FFFF).withOpacity(0.6),
-                                offset: const Offset(4, 4),
-                                blurRadius: 10,
-                                spreadRadius: 1,
-                              ),
-                            ],
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(10),
+                            padding: AppPaddings.p10,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CustomCardText(
+                                AppCardText(
                                   title: company.coName,
-                                  fontSize: 30,
+                                  fontSize: FontSize.k26FontSize,
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'Company Code : ${company.coCode}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title:
                                       'Database Name : ${company.databaseName}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'Server ID : ${company.serverId}',
                                 ),
                                 const Row(),

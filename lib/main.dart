@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
 import 'package:jinee_mobile_access/features/home/screens/home_screen.dart';
 
 void main() {
@@ -25,22 +27,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Dongle',
-        scaffoldBackgroundColor: const Color.fromRGBO(16, 13, 34, 1),
-        appBarTheme: const AppBarTheme(
-          color: Colors.transparent,
-          centerTitle: true,
-          iconTheme: IconThemeData(
-            color: Color(0xFF00FFFF),
-          ),
+    return ScreenUtilInit(
+      child: GetMaterialApp(
+        theme: ThemeData(
+          useMaterial3: true,
+          scaffoldBackgroundColor: kColorBackground,
         ),
+        home: const HomeScreen(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const HomeScreen(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

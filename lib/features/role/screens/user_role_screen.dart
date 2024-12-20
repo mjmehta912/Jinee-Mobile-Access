@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_card_text.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/app_card_text.dart';
+import 'package:jinee_mobile_access/widgets/custom_text.dart';
 import 'package:jinee_mobile_access/features/role/controllers/user_role_controller.dart';
 import 'package:jinee_mobile_access/features/role/screens/add_edit_user_role_screen.dart';
 
@@ -118,32 +118,32 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CustomCardText(
+                                AppCardText(
                                   title: userRole.coName,
                                   fontSize: 30,
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title:
                                       'User Type : ${_controller.userTypes.entries.firstWhere(
                                             (ut) =>
                                                 ut.value == userRole.userType,
                                           ).key}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'SE Code : ${userRole.secodes}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'P Code : ${userRole.pcodes}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title:
                                       'Ledger Start : ${userRole.ledgerStart != null ? DateFormat('dd-MM-yyyy').format(userRole.ledgerStart!) : null}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title:
                                       'Ledger End : ${userRole.ledgerEnd != null ? DateFormat('dd-MM-yyyy').format(userRole.ledgerEnd!) : null}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'App Access : ${userRole.appAccess}',
                                 ),
                                 const Row(),

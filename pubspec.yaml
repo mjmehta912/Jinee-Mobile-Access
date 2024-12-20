@@ -39,6 +39,7 @@ dependencies:
   http: ^1.2.2
   intl: ^0.20.1
   dropdown_search: ^5.0.6
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
@@ -81,14 +82,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Dongle
+    - family: MontserratRegular
       fonts:
-        - asset: assets/fonts/Dongle-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Dongle-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Dongle-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/Montserrat-Regular.ttf
+    - family : MontserratMedium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+    - family : MontserratSemiBold
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
 
   # fonts:
   #   - family: Schyler

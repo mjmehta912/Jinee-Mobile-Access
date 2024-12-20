@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_card_text.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/app_card_text.dart';
+import 'package:jinee_mobile_access/widgets/custom_text.dart';
 import 'package:jinee_mobile_access/features/right/screens/right_screen.dart';
 import 'package:jinee_mobile_access/features/role/screens/user_role_screen.dart';
 import 'package:jinee_mobile_access/features/user/controllers/user_controller.dart';
@@ -97,17 +97,17 @@ class UserScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CustomCardText(
+                                AppCardText(
                                   title: user.fullName,
                                   fontSize: 30,
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'User Id : ${user.userId}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'User Name : ${user.userName}',
                                 ),
-                                CustomCardText(
+                                AppCardText(
                                   title: 'Mobile : ${user.mobileNumber}',
                                 ),
                                 Row(

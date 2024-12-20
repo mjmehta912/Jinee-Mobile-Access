@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_elevated_button.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_elevated_button.dart';
+import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
 import 'package:jinee_mobile_access/features/user/controllers/add_edit_user_controller.dart';
 
 class AddEditUserScreen extends StatefulWidget {
@@ -129,7 +129,7 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                       const SizedBox(
                         height: 25,
                       ),
-                      CustomElevatedButton(
+                      AppElevatedButton(
                         title: 'Save',
                         onPressed: () {
                           if (_controller.formKey.currentState!.validate()) {

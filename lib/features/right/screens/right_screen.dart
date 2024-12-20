@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/custom_text.dart';
 import 'package:jinee_mobile_access/features/right/controllers/right_controller.dart';
 
 class RightScreen extends StatefulWidget {
