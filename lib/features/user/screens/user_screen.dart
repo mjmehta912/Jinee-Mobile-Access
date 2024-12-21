@@ -12,7 +12,7 @@ import 'package:jinee_mobile_access/features/right/screens/right_screen.dart';
 import 'package:jinee_mobile_access/features/role/screens/user_role_screen.dart';
 import 'package:jinee_mobile_access/features/user/controllers/user_controller.dart';
 import 'package:jinee_mobile_access/features/user/screens/add_edit_user_screen.dart';
-import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_text_form_field.dart';
 
 class UserScreen extends StatelessWidget {
   UserScreen({
@@ -59,7 +59,7 @@ class UserScreen extends StatelessWidget {
               padding: AppPaddings.p16,
               child: Column(
                 children: [
-                  CustomTextFormField(
+                  AppTextFormField(
                     onChanged: (value) {
                       _controller.searchQuery.value = value;
                     },

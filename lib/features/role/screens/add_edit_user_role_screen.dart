@@ -6,10 +6,10 @@ import 'package:jinee_mobile_access/styles/textstyles.dart';
 import 'package:jinee_mobile_access/widgets/app_appbar.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 import 'package:jinee_mobile_access/widgets/app_spacings.dart';
-import 'package:jinee_mobile_access/widgets/custom_date_picker_field.dart';
+import 'package:jinee_mobile_access/widgets/app_date_picker_field.dart';
 import 'package:jinee_mobile_access/widgets/app_dropdown.dart';
 import 'package:jinee_mobile_access/widgets/app_button.dart';
-import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_text_form_field.dart';
 import 'package:jinee_mobile_access/features/role/controllers/add_edit_user_role_controller.dart';
 
 class AddEditUserRoleScreen extends StatefulWidget {
@@ -112,7 +112,7 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                   child: Column(
                     children: [
                       Obx(
-                        () => CustomDropdownSearch(
+                        () => AppDropdown(
                           items: _controller.companyNames,
                           onChanged: _controller.onCompany,
                           hintText: 'Company Name',
@@ -126,7 +126,7 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                         ),
                       ),
                       AppSpaces.v16,
-                      CustomDropdownSearch(
+                      AppDropdown(
                         items: _controller.userTypes.keys.toList(),
                         onChanged: _controller.onUserTypeSelected,
                         hintText: 'User Type',
@@ -140,7 +140,7 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                         height: 200,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.seCodeController,
                         hintText: 'SE Codes',
                         labelText: 'SE Codes',
@@ -151,7 +151,7 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                         themeColor: kColorUserRole,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.pCodeController,
                         hintText: 'P Codes',
                         labelText: 'P Codes',
@@ -162,14 +162,14 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                         themeColor: kColorUserRole,
                       ),
                       AppSpaces.v16,
-                      CustomDatePickerTextFormField(
+                      AppDatePickerField(
                         dateController: _controller.ledgerStartDateController,
                         hintText: 'Ledger Start',
                         labelText: 'Ledger Start',
                         themeColor: kColorUserRole,
                       ),
                       AppSpaces.v16,
-                      CustomDatePickerTextFormField(
+                      AppDatePickerField(
                         dateController: _controller.ledgerEndDateController,
                         hintText: 'Ledger End',
                         labelText: 'Ledger End',

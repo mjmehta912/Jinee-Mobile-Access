@@ -3,8 +3,8 @@ import 'package:jinee_mobile_access/constants/color_constants.dart';
 import 'package:jinee_mobile_access/styles/textstyles.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+class AppTextFormField extends StatelessWidget {
+  const AppTextFormField({
     super.key,
     required this.controller,
     required this.hintText,

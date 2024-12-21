@@ -5,7 +5,7 @@ import 'package:jinee_mobile_access/widgets/app_appbar.dart';
 import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 import 'package:jinee_mobile_access/widgets/app_spacings.dart';
-import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_text_form_field.dart';
 import 'package:jinee_mobile_access/features/user/controllers/add_edit_user_controller.dart';
 
 class AddEditUserScreen extends StatefulWidget {
@@ -66,7 +66,7 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.fullNameController,
                         hintText: 'Full Name',
                         labelText: 'Full Name',
@@ -80,7 +80,7 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                         themeColor: kColorSecondary,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.userNamecontroller,
                         hintText: 'User Name',
                         labelText: 'User Name',
@@ -94,7 +94,7 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                         themeColor: kColorSecondary,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.mobileNoController,
                         hintText: 'Mobile Number',
                         labelText: 'Mobile Number',
@@ -108,7 +108,7 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                         themeColor: kColorSecondary,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.passwordController,
                         hintText: 'Password',
                         labelText: 'Password',

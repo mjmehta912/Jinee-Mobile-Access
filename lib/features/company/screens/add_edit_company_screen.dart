@@ -5,7 +5,7 @@ import 'package:jinee_mobile_access/widgets/app_appbar.dart';
 import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 import 'package:jinee_mobile_access/widgets/app_spacings.dart';
-import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_text_form_field.dart';
 import 'package:jinee_mobile_access/features/company/controllers/add_edit_company_controller.dart';
 
 class AddEditCompanyScreen extends StatefulWidget {
@@ -74,7 +74,7 @@ class _AddEditCompanyScreenState extends State<AddEditCompanyScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.companyNameController,
                         hintText: 'Company Name',
                         labelText: 'Company Name',
@@ -87,7 +87,7 @@ class _AddEditCompanyScreenState extends State<AddEditCompanyScreen> {
                         keyboardType: TextInputType.text,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.companyCodeController,
                         hintText: 'Company Code',
                         labelText: 'Company Code',
@@ -100,7 +100,7 @@ class _AddEditCompanyScreenState extends State<AddEditCompanyScreen> {
                         keyboardType: TextInputType.number,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.databaseNameController,
                         hintText: 'Database Name',
                         labelText: 'Database Name',
@@ -113,7 +113,7 @@ class _AddEditCompanyScreenState extends State<AddEditCompanyScreen> {
                         keyboardType: TextInputType.text,
                       ),
                       AppSpaces.v16,
-                      CustomTextFormField(
+                      AppTextFormField(
                         controller: _controller.serverIdController,
                         hintText: 'Server Id',
                         labelText: 'Server Id',

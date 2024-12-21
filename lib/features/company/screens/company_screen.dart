@@ -10,7 +10,7 @@ import 'package:jinee_mobile_access/widgets/app_card_text.dart';
 import 'package:jinee_mobile_access/features/company/screens/add_edit_company_screen.dart';
 import 'package:jinee_mobile_access/widgets/app_size_extensions.dart';
 import 'package:jinee_mobile_access/widgets/app_spacings.dart';
-import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
+import 'package:jinee_mobile_access/widgets/app_text_form_field.dart';
 
 class CompanyScreen extends StatelessWidget {
   CompanyScreen({
@@ -57,7 +57,7 @@ class CompanyScreen extends StatelessWidget {
               padding: AppPaddings.p16,
               child: Column(
                 children: [
-                  CustomTextFormField(
+                  AppTextFormField(
                     onChanged: (value) {
                       _controller.searchQuery.value = value;
                     },

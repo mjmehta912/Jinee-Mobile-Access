@@ -4,8 +4,8 @@ import 'package:jinee_mobile_access/constants/color_constants.dart';
 import 'package:jinee_mobile_access/styles/textstyles.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
-class CustomDropdownSearch extends StatelessWidget {
-  const CustomDropdownSearch({
+class AppDropdown extends StatelessWidget {
+  const AppDropdown({
     super.key,
     required this.items,
     required this.onChanged,

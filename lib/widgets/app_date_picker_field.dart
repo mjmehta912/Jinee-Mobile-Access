@@ -4,8 +4,8 @@ import 'package:jinee_mobile_access/constants/color_constants.dart';
 import 'package:jinee_mobile_access/styles/textstyles.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
-class CustomDatePickerTextFormField extends StatefulWidget {
-  const CustomDatePickerTextFormField({
+class AppDatePickerField extends StatefulWidget {
+  const AppDatePickerField({
     super.key,
     required this.dateController,
     required this.hintText,
@@ -19,12 +19,10 @@ class CustomDatePickerTextFormField extends StatefulWidget {
   final Color? themeColor;
 
   @override
-  State<CustomDatePickerTextFormField> createState() =>
-      _CustomDatePickerTextFormFieldState();
+  State<AppDatePickerField> createState() => _AppDatePickerFieldState();
 }
 
-class _CustomDatePickerTextFormFieldState
-    extends State<CustomDatePickerTextFormField> {
+class _AppDatePickerFieldState extends State<AppDatePickerField> {
   static const String dateFormat = 'dd-MM-yyyy';
 
   final FocusNode _focusNode = FocusNode();
