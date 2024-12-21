@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_appbar.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 import 'package:jinee_mobile_access/features/right/controllers/right_controller.dart';
 
 class RightScreen extends StatefulWidget {
@@ -37,11 +40,8 @@ class _RightScreenState extends State<RightScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: CustomText(
-          title: widget.userName,
-          fontSize: 40,
-        ),
+      appBar: AppAppbar(
+        title: widget.userName,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -50,9 +50,12 @@ class _RightScreenState extends State<RightScreen> {
         ),
         child: Obx(
           () {
-            // Check if the menuAccess data has been loaded
             if (_controller.menuAccess.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: kColorUserRight,
+                ),
+              );
             }
 
             return ListView.builder(
@@ -61,25 +64,21 @@ class _RightScreenState extends State<RightScreen> {
                 final menu = _controller.menuAccess[index];
 
                 return ListTile(
-                  contentPadding: const EdgeInsets.all(10),
-                  // title: CustomText(
-                  //   title: menu.menuName,
-                  //   fontSize: 40,
-                  // ),
+                  contentPadding: AppPaddings.p10,
                   title: Text(
                     menu.menuName,
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF00BFFF),
-                      height: 1,
+                    style: TextStyles.kSemiBoldMontserrat(
+                      fontSize: FontSize.k24FontSize,
+                      color: kColorUserRight,
+                    ).copyWith(
+                      height: 1.5,
                     ),
                   ),
                   trailing: Switch(
-                    activeColor: const Color(0xFF00BFFF),
-                    activeTrackColor: const Color(0xFFFFFF00),
+                    activeColor: kColorTextSecondary,
+                    activeTrackColor: kColorUserRight,
                     inactiveTrackColor: Colors.transparent,
-                    inactiveThumbColor: const Color(0xFF00BFFF),
+                    inactiveThumbColor: kColorSecondary,
                     value: menu.access,
                     onChanged: (bool value) {
                       _controller.updateMenuAccess(

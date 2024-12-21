@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
 class CustomDatePickerTextFormField extends StatefulWidget {
   const CustomDatePickerTextFormField({
@@ -7,11 +10,13 @@ class CustomDatePickerTextFormField extends StatefulWidget {
     required this.dateController,
     required this.hintText,
     required this.labelText,
+    this.themeColor = kColorPrimary,
   });
 
   final TextEditingController dateController;
   final String hintText;
   final String labelText;
+  final Color? themeColor;
 
   @override
   State<CustomDatePickerTextFormField> createState() =>
@@ -49,9 +54,12 @@ class _CustomDatePickerTextFormFieldState
 
     if (pickedDate != null) {
       _focusNode.unfocus();
-      setState(() {
-        widget.dateController.text = DateFormat(dateFormat).format(pickedDate);
-      });
+      setState(
+        () {
+          widget.dateController.text =
+              DateFormat(dateFormat).format(pickedDate);
+        },
+      );
     }
   }
 
@@ -65,13 +73,35 @@ class _CustomDatePickerTextFormFieldState
 
   ThemeData _buildDatePickerTheme(BuildContext context) {
     return ThemeData.light().copyWith(
-      primaryColor: const Color(0xFF00BFFF),
+      primaryColor: kColorTextPrimary,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFFFFFF00),
-        onPrimary: Colors.black,
-        surface: Color(0xFF00BFFF),
+        primary: kColorTextSecondary,
+        onPrimary: kColorBackground,
+        surface: kColorTextPrimary,
       ),
       dialogBackgroundColor: Colors.white,
+      textTheme: TextTheme(
+        headlineLarge: TextStyles.kSemiBoldMontserrat(
+          fontSize: FontSize.k24FontSize,
+          color: kColorBackground,
+        ),
+        bodyLarge: TextStyles.kSemiBoldMontserrat(
+          fontSize: FontSize.k16FontSize,
+          color: kColorBackground,
+        ),
+        titleLarge: TextStyles.kSemiBoldMontserrat(
+          fontSize: FontSize.k18FontSize,
+          color: kColorBackground,
+        ),
+        displayLarge: TextStyles.kSemiBoldMontserrat(
+          fontSize: FontSize.k18FontSize,
+          color: kColorBackground,
+        ),
+        labelLarge: TextStyles.kSemiBoldMontserrat(
+          fontSize: FontSize.k18FontSize,
+          color: kColorBackground,
+        ),
+      ),
     );
   }
 
@@ -83,63 +113,63 @@ class _CustomDatePickerTextFormFieldState
       keyboardType: TextInputType.datetime,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFF00BFFF),
+          borderSide: BorderSide(
+            color: widget.themeColor!,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.blue,
+          borderSide: BorderSide(
+            color: widget.themeColor!,
             width: 2,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFF00BFFF),
+          borderSide: BorderSide(
+            color: widget.themeColor!,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(10),
         ),
         hintText: widget.hintText,
-        hintStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Colors.blueGrey,
+        hintStyle: TextStyles.kMediumMontserrat(
+          color: kColorTextSecondary,
         ),
         labelText: widget.labelText,
-        labelStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Colors.blueGrey,
+        labelStyle: TextStyles.kMediumMontserrat(
+          color: kColorTextSecondary,
         ),
-        floatingLabelStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Color(0xFF00BFFF),
+        floatingLabelStyle: TextStyles.kMediumMontserrat(
+          color: widget.themeColor!,
+        ),
+        errorStyle: TextStyles.kRegularMontserrat(
+          color: Colors.redAccent,
+          fontSize: FontSize.k16FontSize,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
-        ),
+        contentPadding: AppPaddings.p12,
         suffixIcon: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.calendar_today_rounded,
             size: 20,
-            color: Color(0xFF00BFFF),
+            color: widget.themeColor,
           ),
           onPressed: () => _selectDate(context),
         ),
       ),
-      style: const TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.w400,
-        color: Color(0xFF00BFFF),
+      style: TextStyles.kSemiBoldMontserrat(
+        color: widget.themeColor!,
       ),
-      cursorColor: const Color(0xFF00BFFF),
+      cursorColor: widget.themeColor,
       cursorHeight: 25,
       validator: (value) {
         return null;

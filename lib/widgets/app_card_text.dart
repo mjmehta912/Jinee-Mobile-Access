@@ -6,7 +6,7 @@ class AppCardText extends StatelessWidget {
   const AppCardText({
     super.key,
     required this.title,
-    this.fontSize = FontSize.k20FontSize,
+    this.fontSize = FontSize.k18FontSize,
   });
 
   final String title;
@@ -16,7 +16,7 @@ class AppCardText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyles.kMediumMontserrat(
+      style: TextStyles.kSemiBoldMontserrat(
         fontSize: fontSize,
         color: kColorBlack,
       ).copyWith(

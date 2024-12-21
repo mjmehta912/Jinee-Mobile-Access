@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/widgets/app_elevated_button.dart';
-import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/widgets/app_appbar.dart';
+import 'package:jinee_mobile_access/widgets/app_button.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
+import 'package:jinee_mobile_access/widgets/app_spacings.dart';
 import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
 import 'package:jinee_mobile_access/features/user/controllers/add_edit_user_controller.dart';
 
@@ -51,19 +54,13 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
     return Stack(
       children: [
         GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Scaffold(
-            appBar: AppBar(
-              title: CustomText(
-                title: widget.isEdit ? 'Edit User' : 'Add User',
-                fontSize: 40,
-              ),
+            appBar: AppAppbar(
+              title: widget.isEdit ? 'Edit User' : 'Add User',
             ),
             body: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 10,
-              ),
+              padding: AppPaddings.p16,
               child: Form(
                 key: _controller.formKey,
                 child: SingleChildScrollView(
@@ -80,10 +77,9 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.text,
+                        themeColor: kColorSecondary,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomTextFormField(
                         controller: _controller.userNamecontroller,
                         hintText: 'User Name',
@@ -95,10 +91,9 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.text,
+                        themeColor: kColorSecondary,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomTextFormField(
                         controller: _controller.mobileNoController,
                         hintText: 'Mobile Number',
@@ -110,10 +105,9 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.number,
+                        themeColor: kColorSecondary,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomTextFormField(
                         controller: _controller.passwordController,
                         hintText: 'Password',
@@ -125,12 +119,12 @@ class _AddEditUserScreenState extends State<AddEditUserScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.text,
+                        themeColor: kColorSecondary,
                       ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      AppElevatedButton(
+                      AppSpaces.v40,
+                      AppButton(
                         title: 'Save',
+                        buttonColor: kColorSecondary,
                         onPressed: () {
                           if (_controller.formKey.currentState!.validate()) {
                             if (widget.isEdit) {

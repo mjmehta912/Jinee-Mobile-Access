@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_appbar.dart';
+import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/widgets/app_card_text.dart';
-import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
+import 'package:jinee_mobile_access/widgets/app_size_extensions.dart';
+import 'package:jinee_mobile_access/widgets/app_spacings.dart';
 import 'package:jinee_mobile_access/features/role/controllers/user_role_controller.dart';
 import 'package:jinee_mobile_access/features/role/screens/add_edit_user_role_screen.dart';
 
@@ -36,36 +42,32 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
     return Stack(
       children: [
         Scaffold(
-          appBar: AppBar(
-            title: const CustomText(
-              title: 'User Roles',
-              fontSize: 40,
-            ),
+          appBar: AppAppbar(
+            title: 'User Roles',
             actions: [
-              IconButton(
+              AppButton(
+                width: 0.25.screenWidth,
+                buttonColor: kColorUserRole,
+                height: 35,
+                title: '+ Add',
+                titleSize: FontSize.k18FontSize,
                 onPressed: () {
                   Get.to(
                     () => AddEditUserRoleScreen(
                       userId: widget.userId,
                       isEdit: false,
                     ),
-                    transition: Transition.fade,
+                    transition: Transition.fadeIn,
                     duration: const Duration(
-                      milliseconds: 500,
+                      milliseconds: 300,
                     ),
                   );
                 },
-                icon: const Icon(
-                  Icons.add,
-                ),
               ),
             ],
           ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
-            ),
+            padding: AppPaddings.p16,
             child: Obx(
               () => ListView.builder(
                 itemCount: _controller.userRoles.length,
@@ -87,40 +89,24 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                           ledgerEndDate: userRole.ledgerEnd,
                           isAppAccessAvailable: userRole.appAccess,
                         ),
-                        transition: Transition.fade,
+                        transition: Transition.fadeIn,
                         duration: const Duration(
-                          milliseconds: 500,
+                          milliseconds: 300,
                         ),
                       );
                     },
                     child: Column(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF00FFFF),
-                                Color(0xFF00BFFF),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFF00FFFF).withOpacity(0.6),
-                                offset: const Offset(4, 4),
-                                blurRadius: 10,
-                                spreadRadius: 1,
-                              ),
-                            ],
-                          ),
+                        Card(
+                          color: kColorUserRole,
                           child: Padding(
-                            padding: const EdgeInsets.all(10),
+                            padding: AppPaddings.p10,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AppCardText(
                                   title: userRole.coName,
-                                  fontSize: 30,
+                                  fontSize: FontSize.k24FontSize,
                                 ),
                                 AppCardText(
                                   title:
@@ -151,9 +137,7 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 15,
-                        ),
+                        AppSpaces.v16
                       ],
                     ),
                   );
@@ -170,7 +154,7 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                   color: Colors.black54,
                   child: const Center(
                     child: CircularProgressIndicator(
-                      color: Color(0xFF00FFFF),
+                      color: kColorUserRole,
                     ),
                   ),
                 )

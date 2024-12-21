@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:jinee_mobile_access/common/helpers/snackbar.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/utils/app_dialog_utils.dart';
 import 'package:jinee_mobile_access/features/company/models/company_dm.dart';
 import 'package:jinee_mobile_access/features/company/services/company_service.dart';
 import 'package:jinee_mobile_access/features/role/controllers/user_role_controller.dart';
@@ -105,6 +106,7 @@ class AddEditUserRoleController extends GetxController {
       showSuccessSnackbar(
         'Success',
         successMessage,
+        bgColor: kColorUserRole,
       );
     } catch (e) {
       showErrorSnackbar(
@@ -147,6 +149,7 @@ class AddEditUserRoleController extends GetxController {
       showSuccessSnackbar(
         'Success',
         successMessage,
+        bgColor: kColorUserRole,
       );
     } catch (e) {
       showErrorSnackbar(

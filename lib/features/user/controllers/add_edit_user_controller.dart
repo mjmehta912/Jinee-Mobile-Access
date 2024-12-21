@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/helpers/snackbar.dart';
+import 'package:jinee_mobile_access/utils/app_dialog_utils.dart';
 import 'package:jinee_mobile_access/features/user/controllers/user_controller.dart';
 import 'package:jinee_mobile_access/features/user/services/user_service.dart';
 

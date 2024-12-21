@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/helpers/snackbar.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/utils/app_dialog_utils.dart';
 import 'package:jinee_mobile_access/features/right/models/user_rights_dm.dart';
 import 'package:jinee_mobile_access/features/right/services/right_service.dart';
 
@@ -47,6 +48,7 @@ class RightController extends GetxController {
       showSuccessSnackbar(
         'Success',
         successMessage,
+        bgColor: kColorUserRight,
       );
     } catch (e) {
       showErrorSnackbar(

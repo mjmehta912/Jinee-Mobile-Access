@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -7,14 +10,22 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     required this.labelText,
     required this.validator,
-    required this.keyboardType,
+    this.keyboardType = TextInputType.text,
+    this.maxLines = 1,
+    this.minLines = 1,
+    this.themeColor = kColorPrimary,
+    this.onChanged,
   });
 
   final TextEditingController controller;
   final String hintText;
   final String labelText;
   final FormFieldValidator validator;
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
+  final int? minLines;
+  final int? maxLines;
+  final Color? themeColor;
+  final void Function(String value)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -22,58 +33,61 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFF00BFFF),
+          borderSide: BorderSide(
+            color: themeColor!,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.blue,
+          borderSide: BorderSide(
+            color: themeColor!,
             width: 2,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFF00BFFF),
+          borderSide: BorderSide(
+            color: themeColor!,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(10),
         ),
         hintText: hintText,
-        hintStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Colors.blueGrey,
+        hintStyle: TextStyles.kMediumMontserrat(
+          color: kColorTextSecondary,
         ),
         labelText: labelText,
-        labelStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Colors.blueGrey,
+        labelStyle: TextStyles.kMediumMontserrat(
+          color: kColorTextSecondary,
         ),
-        floatingLabelStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-          color: Color(0xFF00BFFF),
+        floatingLabelStyle: TextStyles.kMediumMontserrat(
+          color: themeColor!,
+        ),
+        errorStyle: TextStyles.kRegularMontserrat(
+          color: Colors.redAccent,
+          fontSize: FontSize.k16FontSize,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
-        ),
+        contentPadding: AppPaddings.p12,
       ),
-      style: const TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.w400,
-        color: Color(0xFF00BFFF),
+      style: TextStyles.kSemiBoldMontserrat(
+        color: themeColor!,
       ),
-      cursorColor: const Color(0xFF00BFFF),
-      cursorHeight: 25,
+      cursorColor: themeColor,
+      cursorHeight: 20,
       validator: validator,
       keyboardType: keyboardType,
+      minLines: minLines,
+      maxLines: maxLines,
+      onChanged: onChanged,
     );
   }
 }

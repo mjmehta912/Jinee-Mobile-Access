@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_appbar.dart';
+import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/widgets/app_card_text.dart';
-import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
+import 'package:jinee_mobile_access/widgets/app_size_extensions.dart';
+import 'package:jinee_mobile_access/widgets/app_spacings.dart';
 import 'package:jinee_mobile_access/features/right/screens/right_screen.dart';
 import 'package:jinee_mobile_access/features/role/screens/user_role_screen.dart';
 import 'package:jinee_mobile_access/features/user/controllers/user_controller.dart';
 import 'package:jinee_mobile_access/features/user/screens/add_edit_user_screen.dart';
+import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
 
 class UserScreen extends StatelessWidget {
   UserScreen({
@@ -20,181 +27,157 @@ class UserScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Scaffold(
-          appBar: AppBar(
-            title: const CustomText(
+        GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            appBar: AppAppbar(
               title: 'Users',
-              fontSize: 40,
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Get.to(
-                    () => const AddEditUserScreen(
-                      isEdit: false,
-                    ),
-                    transition: Transition.fade,
-                    duration: const Duration(
-                      milliseconds: 500,
-                    ),
-                  );
-                },
-                icon: const Icon(
-                  Icons.add,
+              actions: [
+                AppButton(
+                  width: 0.25.screenWidth,
+                  height: 35,
+                  buttonColor: kColorSecondary,
+                  title: '+ Add',
+                  titleSize: FontSize.k18FontSize,
+                  onPressed: () {
+                    Get.to(
+                      () => const AddEditUserScreen(
+                        isEdit: false,
+                      ),
+                      transition: Transition.fadeIn,
+                      duration: const Duration(
+                        milliseconds: 300,
+                      ),
+                    );
+                  },
                 ),
-              ),
-            ],
-          ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
+              ],
             ),
-            child: Obx(
-              () => ListView.builder(
-                itemCount: _controller.users.length,
-                itemBuilder: (context, index) {
-                  final user = _controller.users[index];
-
-                  return GestureDetector(
-                    onTap: () {
-                      Get.to(
-                        () => AddEditUserScreen(
-                          isEdit: true,
-                          fullName: user.fullName,
-                          userName: user.userName,
-                          mobileNo: user.mobileNumber,
-                          userId: user.userId,
-                        ),
-                        transition: Transition.fade,
-                        duration: const Duration(
-                          milliseconds: 500,
-                        ),
-                      );
+            body: Padding(
+              padding: AppPaddings.p16,
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    onChanged: (value) {
+                      _controller.searchQuery.value = value;
                     },
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF00FFFF),
-                                Color(0xFF00BFFF),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFF00FFFF).withOpacity(0.6),
-                                offset: const Offset(4, 4),
-                                blurRadius: 10,
-                                spreadRadius: 1,
-                              ),
-                            ],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
+                    hintText: 'Search',
+                    labelText: 'Search',
+                    controller: TextEditingController(),
+                    validator: (value) {
+                      return null;
+                    },
+                    themeColor: kColorSecondary,
+                  ),
+                  AppSpaces.v20,
+                  Expanded(
+                    child: Obx(
+                      () => ListView.builder(
+                        itemCount: _controller.filteredUsers.length,
+                        itemBuilder: (context, index) {
+                          final user = _controller.filteredUsers[index];
+
+                          return GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                () => AddEditUserScreen(
+                                  isEdit: true,
+                                  fullName: user.fullName,
+                                  userName: user.userName,
+                                  mobileNo: user.mobileNumber,
+                                  userId: user.userId,
+                                ),
+                                transition: Transition.fadeIn,
+                                duration: const Duration(
+                                  milliseconds: 300,
+                                ),
+                              );
+                            },
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                AppCardText(
-                                  title: user.fullName,
-                                  fontSize: 30,
-                                ),
-                                AppCardText(
-                                  title: 'User Id : ${user.userId}',
-                                ),
-                                AppCardText(
-                                  title: 'User Name : ${user.userName}',
-                                ),
-                                AppCardText(
-                                  title: 'Mobile : ${user.mobileNumber}',
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            const Color(0xFFFFFF00),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
+                                Card(
+                                  color: kColorSecondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Padding(
+                                    padding: AppPaddings.p10,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        AppCardText(
+                                          title: user.fullName,
+                                          fontSize: FontSize.k24FontSize,
                                         ),
-                                        minimumSize: Size(
-                                            MediaQuery.of(context).size.width *
-                                                0.35,
-                                            40),
-                                      ),
-                                      onPressed: () {
-                                        Get.to(
-                                          () => UserRoleScreen(
-                                            userId: user.userId,
-                                          ),
-                                          transition: Transition.fade,
-                                          duration: const Duration(
-                                            milliseconds: 500,
-                                          ),
-                                        );
-                                      },
-                                      child: const Text(
-                                        'User Role',
-                                        style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
+                                        AppCardText(
+                                          title: 'User Id : ${user.userId}',
                                         ),
-                                      ),
+                                        AppCardText(
+                                          title: 'User Name : ${user.userName}',
+                                        ),
+                                        AppCardText(
+                                          title:
+                                              'Mobile : ${user.mobileNumber}',
+                                        ),
+                                        AppSpaces.v10,
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            AppButton(
+                                              width: 0.35.screenWidth,
+                                              titleSize: FontSize.k18FontSize,
+                                              buttonColor: kColorUserRole,
+                                              onPressed: () {
+                                                Get.to(
+                                                  () => UserRoleScreen(
+                                                    userId: user.userId,
+                                                  ),
+                                                  transition: Transition.fadeIn,
+                                                  duration: const Duration(
+                                                    milliseconds: 300,
+                                                  ),
+                                                );
+                                              },
+                                              title: 'User Role',
+                                            ),
+                                            AppButton(
+                                              width: 0.35.screenWidth,
+                                              titleSize: FontSize.k18FontSize,
+                                              buttonColor: kColorUserRight,
+                                              onPressed: () {
+                                                Get.to(
+                                                  () => RightScreen(
+                                                    userId: user.userId,
+                                                    userName: user.userName,
+                                                  ),
+                                                  transition: Transition.fadeIn,
+                                                  duration: const Duration(
+                                                    milliseconds: 300,
+                                                  ),
+                                                );
+                                              },
+                                              title: 'User Rights',
+                                            ),
+                                          ],
+                                        ),
+                                        const Row(),
+                                      ],
                                     ),
-                                    ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            const Color(0xFFFFFF00),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        minimumSize: Size(
-                                            MediaQuery.of(context).size.width *
-                                                0.35,
-                                            40),
-                                      ),
-                                      onPressed: () {
-                                        Get.to(
-                                          () => RightScreen(
-                                            userId: user.userId,
-                                            userName: user.userName,
-                                          ),
-                                          transition: Transition.fade,
-                                          duration: const Duration(
-                                            milliseconds: 500,
-                                          ),
-                                        );
-                                      },
-                                      child: const Text(
-                                        'User Rights',
-                                        style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                                const Row(),
+                                AppSpaces.v16,
                               ],
                             ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                      ],
+                          );
+                        },
+                      ),
                     ),
-                  );
-                },
+                  ),
+                ],
               ),
             ),
           ),
@@ -207,7 +190,7 @@ class UserScreen extends StatelessWidget {
                   color: Colors.black54,
                   child: const Center(
                     child: CircularProgressIndicator(
-                      color: Color(0xFF00FFFF),
+                      color: kColorSecondary,
                     ),
                   ),
                 )

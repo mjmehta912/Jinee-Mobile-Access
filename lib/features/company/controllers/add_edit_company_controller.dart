@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jinee_mobile_access/common/helpers/snackbar.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/utils/app_dialog_utils.dart';
 import 'package:jinee_mobile_access/features/company/controllers/company_controller.dart';
 import 'package:jinee_mobile_access/features/company/services/company_service.dart';
 
@@ -34,6 +35,7 @@ class AddEditCompanyController extends GetxController {
       showSuccessSnackbar(
         'Success',
         successMessage,
+        bgColor: kColorSecondary,
       );
     } catch (e) {
       showErrorSnackbar(
@@ -63,6 +65,7 @@ class AddEditCompanyController extends GetxController {
       showSuccessSnackbar(
         'Success',
         successMessage,
+        bgColor: kColorSecondary,
       );
     } catch (e) {
       showErrorSnackbar(

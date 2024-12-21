@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_appbar.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
+import 'package:jinee_mobile_access/widgets/app_spacings.dart';
 import 'package:jinee_mobile_access/widgets/custom_date_picker_field.dart';
-import 'package:jinee_mobile_access/widgets/custom_dropdown.dart';
-import 'package:jinee_mobile_access/widgets/app_elevated_button.dart';
-import 'package:jinee_mobile_access/widgets/custom_text.dart';
+import 'package:jinee_mobile_access/widgets/app_dropdown.dart';
+import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/widgets/custom_text_form_field.dart';
 import 'package:jinee_mobile_access/features/role/controllers/add_edit_user_role_controller.dart';
 
@@ -95,19 +99,13 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
     return Stack(
       children: [
         GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Scaffold(
-            appBar: AppBar(
-              title: CustomText(
-                title: widget.isEdit ? 'Edit User Role' : 'Add User Role',
-                fontSize: 40,
-              ),
+            appBar: AppAppbar(
+              title: widget.isEdit ? 'Edit User Role' : 'Add User Role',
             ),
             body: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 10,
-              ),
+              padding: AppPaddings.p16,
               child: Form(
                 key: _controller.formKey,
                 child: SingleChildScrollView(
@@ -124,11 +122,10 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                               _controller.selectedCompany.value.isNotEmpty
                                   ? _controller.selectedCompany.value
                                   : null,
+                          themeColor: kColorUserRole,
                         ),
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomDropdownSearch(
                         items: _controller.userTypes.keys.toList(),
                         onChanged: _controller.onUserTypeSelected,
@@ -139,10 +136,10 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                                 ? _controller.selectedUserType.value
                                 : null,
                         validatorText: 'Please select a user type',
+                        themeColor: kColorUserRole,
+                        height: 200,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomTextFormField(
                         controller: _controller.seCodeController,
                         hintText: 'SE Codes',
@@ -151,10 +148,9 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.text,
+                        themeColor: kColorUserRole,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomTextFormField(
                         controller: _controller.pCodeController,
                         hintText: 'P Codes',
@@ -163,52 +159,46 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                           return null;
                         },
                         keyboardType: TextInputType.text,
+                        themeColor: kColorUserRole,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomDatePickerTextFormField(
                         dateController: _controller.ledgerStartDateController,
                         hintText: 'Ledger Start',
                         labelText: 'Ledger Start',
+                        themeColor: kColorUserRole,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       CustomDatePickerTextFormField(
                         dateController: _controller.ledgerEndDateController,
                         hintText: 'Ledger End',
                         labelText: 'Ledger End',
+                        themeColor: kColorUserRole,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      AppSpaces.v16,
                       Obx(
                         () => SwitchListTile(
-                          title: const Text(
+                          title: Text(
                             'App Access',
-                            style: TextStyle(
-                              height: 1,
-                              fontSize: 30,
-                              color: Color(0xFF00BFFF),
-                              fontWeight: FontWeight.w500,
+                            style: TextStyles.kSemiBoldMontserrat(
+                              fontSize: FontSize.k24FontSize,
+                              color: kColorUserRole,
                             ),
                           ),
-                          activeColor: const Color(0xFF00BFFF),
-                          activeTrackColor: const Color(0xFFFFFF00),
+                          activeColor: kColorSecondary,
+                          activeTrackColor: kColorUserRole,
                           inactiveTrackColor: Colors.transparent,
-                          inactiveThumbColor: const Color(0xFF00BFFF),
+                          inactiveThumbColor: kColorTextSecondary,
                           value: _controller.appAccess.value,
                           onChanged: (bool value) {
                             _controller.appAccess.value = value;
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      AppElevatedButton(
+                      AppSpaces.v40,
+                      AppButton(
                         title: 'Save',
+                        buttonColor: kColorUserRole,
                         onPressed: () {
                           if (_controller.formKey.currentState!.validate()) {
                             if (widget.isEdit) {
@@ -238,7 +228,7 @@ class _AddEditUserRoleScreenState extends State<AddEditUserRoleScreen> {
                   color: Colors.black54,
                   child: const Center(
                     child: CircularProgressIndicator(
-                      color: Color(0xFF00FFFF),
+                      color: kColorUserRole,
                     ),
                   ),
                 )

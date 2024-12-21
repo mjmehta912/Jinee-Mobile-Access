@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:jinee_mobile_access/constants/color_constants.dart';
+import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_paddings.dart';
 
 class CustomDropdownSearch extends StatelessWidget {
   const CustomDropdownSearch({
@@ -10,6 +13,8 @@ class CustomDropdownSearch extends StatelessWidget {
     required this.labelText,
     this.selectedItem,
     this.validatorText,
+    this.themeColor = kColorPrimary,
+    this.height = 300,
   });
 
   final List<String> items;
@@ -18,92 +23,91 @@ class CustomDropdownSearch extends StatelessWidget {
   final String labelText;
   final String? selectedItem;
   final String? validatorText;
+  final Color? themeColor;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<String>(
-      items: items, // Predefined list
+      items: items,
       dropdownDecoratorProps: DropDownDecoratorProps(
         dropdownSearchDecoration: InputDecoration(
           border: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Color(0xFF00BFFF),
+            borderSide: BorderSide(
+              color: themeColor!,
               width: 1,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.blue,
+            borderSide: BorderSide(
+              color: themeColor!,
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Color(0xFF00BFFF),
+            borderSide: BorderSide(
+              color: themeColor!,
               width: 1,
             ),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.redAccent,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(10),
           ),
           hintText: hintText,
-          hintStyle: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-            color: Colors.blueGrey,
+          hintStyle: TextStyles.kMediumMontserrat(
+            color: kColorTextSecondary,
           ),
           labelText: labelText,
-          labelStyle: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-            color: Colors.blueGrey,
+          labelStyle: TextStyles.kMediumMontserrat(
+            color: kColorTextSecondary,
           ),
-          floatingLabelStyle: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-            color: Color(0xFF00BFFF),
+          floatingLabelStyle: TextStyles.kMediumMontserrat(
+            color: themeColor!,
+          ),
+          errorStyle: TextStyles.kRegularMontserrat(
+            color: Colors.redAccent,
+            fontSize: FontSize.k16FontSize,
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
+          contentPadding: AppPaddings.p12,
         ),
-        baseStyle: const TextStyle(
-          fontSize: 25,
-          color: Color(0xFF00BFFF),
-          fontWeight: FontWeight.w400,
+        baseStyle: TextStyles.kSemiBoldMontserrat(
+          color: themeColor!,
         ),
       ),
       popupProps: PopupProps.menu(
         showSearchBox: false,
         menuProps: MenuProps(
           borderRadius: BorderRadius.circular(8),
-          backgroundColor: const Color(0xFF00BFFF),
+          backgroundColor: themeColor,
           elevation: 5,
         ),
-        constraints: const BoxConstraints(
-          maxHeight: 200,
+        constraints: BoxConstraints(
+          maxHeight: height!,
         ),
         itemBuilder: (context, item, isSelected) {
           return Column(
             children: [
               ListTile(
-                title: Text(
-                  item,
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: Colors.black,
-                        fontSize: 24,
-                        height: 0.8,
-                      ),
-                ),
+                title: Text(item,
+                    style: TextStyles.kSemiBoldMontserrat(
+                      fontSize: FontSize.k20FontSize,
+                      color: kColorBackground,
+                    )),
               ),
               if (item != items.last)
                 const Divider(
                   height: 1,
                   indent: 30,
                   endIndent: 30,
-                  color: Colors.blueGrey,
+                  color: kColorBackground,
                 ),
             ],
           );

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jinee_mobile_access/widgets/app_paddings.dart';
-import 'package:jinee_mobile_access/widgets/app_elevated_button.dart';
+import 'package:jinee_mobile_access/widgets/app_button.dart';
 import 'package:jinee_mobile_access/constants/color_constants.dart';
 import 'package:jinee_mobile_access/features/company/screens/company_screen.dart';
 import 'package:jinee_mobile_access/features/user/screens/user_screen.dart';
 import 'package:jinee_mobile_access/styles/textstyles.dart';
+import 'package:jinee_mobile_access/widgets/app_spacings.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -25,20 +26,18 @@ class HomeScreen extends StatelessWidget {
               'Jinee',
               style: TextStyles.kSemiBoldMontserrat(
                 fontSize: FontSize.k34FontSize,
-                color: kColorPrimary,
+                color: kColorTextPrimary,
               ),
             ),
             Text(
               'Mobile Access',
               style: TextStyles.kSemiBoldMontserrat(
                 fontSize: FontSize.k40FontSize,
-                color: kColorPrimaryText,
+                color: kColorTextPrimary,
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.width * 0.1,
-            ),
-            AppElevatedButton(
+            AppSpaces.v40,
+            AppButton(
               title: 'Company',
               onPressed: () {
                 Get.to(
@@ -50,11 +49,10 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.width * 0.1,
-            ),
-            AppElevatedButton(
+            AppSpaces.v40,
+            AppButton(
               title: 'User',
+              buttonColor: kColorSecondary,
               onPressed: () {
                 Get.to(
                   () => UserScreen(),
