@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             Text(
               'Jinee',
               style: TextStyles.kSemiBoldMontserrat(
-                fontSize: FontSize.k34FontSize,
+                fontSize: FontSize.k30FontSize,
                 color: kColorTextPrimary,
               ),
             ),
@@ -39,6 +39,7 @@ class HomeScreen extends StatelessWidget {
             AppSpaces.v40,
             AppButton(
               title: 'Company',
+              titleSize: FontSize.k20FontSize,
               onPressed: () {
                 Get.to(
                   () => CompanyScreen(),
@@ -52,6 +53,7 @@ class HomeScreen extends StatelessWidget {
             AppSpaces.v40,
             AppButton(
               title: 'User',
+              titleSize: FontSize.k20FontSize,
               buttonColor: kColorSecondary,
               onPressed: () {
                 Get.to(

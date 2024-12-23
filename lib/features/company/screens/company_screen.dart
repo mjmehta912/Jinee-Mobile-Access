@@ -35,10 +35,10 @@ class CompanyScreen extends StatelessWidget {
               title: 'Companies',
               actions: [
                 AppButton(
-                  width: 0.25.screenWidth,
+                  width: 0.30.screenWidth,
                   height: 35,
                   title: '+ Add',
-                  titleSize: FontSize.k18FontSize,
+                  titleSize: FontSize.k16FontSize,
                   onPressed: () {
                     Get.to(
                       () => const AddEditCompanyScreen(
@@ -68,7 +68,7 @@ class CompanyScreen extends StatelessWidget {
                       return null;
                     },
                   ),
-                  AppSpaces.v20, // Spacing between search and list
+                  AppSpaces.v20,
                   Expanded(
                     child: Obx(
                       () => ListView.builder(
@@ -108,19 +108,22 @@ class CompanyScreen extends StatelessWidget {
                                       children: [
                                         AppCardText(
                                           title: company.coName,
-                                          fontSize: FontSize.k24FontSize,
+                                          fontSize: FontSize.k22FontSize,
                                         ),
                                         AppCardText(
                                           title:
                                               'Company Code : ${company.coCode}',
+                                          fontSize: FontSize.k18FontSize,
                                         ),
                                         AppCardText(
                                           title:
                                               'Database Name : ${company.databaseName}',
+                                          fontSize: FontSize.k18FontSize,
                                         ),
                                         AppCardText(
                                           title:
                                               'Server ID : ${company.serverId}',
+                                          fontSize: FontSize.k18FontSize,
                                         ),
                                         const Row(),
                                       ],

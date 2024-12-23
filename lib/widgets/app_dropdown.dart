@@ -63,13 +63,16 @@ class AppDropdown extends StatelessWidget {
           hintText: hintText,
           hintStyle: TextStyles.kMediumMontserrat(
             color: kColorTextSecondary,
+            fontSize: FontSize.k16FontSize,
           ),
           labelText: labelText,
           labelStyle: TextStyles.kMediumMontserrat(
             color: kColorTextSecondary,
+            fontSize: FontSize.k16FontSize,
           ),
           floatingLabelStyle: TextStyles.kMediumMontserrat(
             color: themeColor!,
+            fontSize: FontSize.k16FontSize,
           ),
           errorStyle: TextStyles.kRegularMontserrat(
             color: Colors.redAccent,
@@ -80,6 +83,7 @@ class AppDropdown extends StatelessWidget {
         ),
         baseStyle: TextStyles.kSemiBoldMontserrat(
           color: themeColor!,
+          fontSize: FontSize.k18FontSize,
         ),
       ),
       popupProps: PopupProps.menu(

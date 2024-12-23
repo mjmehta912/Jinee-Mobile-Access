@@ -36,7 +36,7 @@ class UserScreen extends StatelessWidget {
               title: 'Users',
               actions: [
                 AppButton(
-                  width: 0.25.screenWidth,
+                  width: 0.30.screenWidth,
                   height: 35,
                   buttonColor: kColorSecondary,
                   title: '+ Add',
@@ -110,26 +110,28 @@ class UserScreen extends StatelessWidget {
                                       children: [
                                         AppCardText(
                                           title: user.fullName,
-                                          fontSize: FontSize.k24FontSize,
+                                          fontSize: FontSize.k22FontSize,
                                         ),
                                         AppCardText(
                                           title: 'User Id : ${user.userId}',
+                                          fontSize: FontSize.k18FontSize,
                                         ),
                                         AppCardText(
-                                          title: 'User Name : ${user.userName}',
-                                        ),
+                                            title:
+                                                'User Name : ${user.userName}',
+                                            fontSize: FontSize.k18FontSize),
                                         AppCardText(
-                                          title:
-                                              'Mobile : ${user.mobileNumber}',
-                                        ),
+                                            title:
+                                                'Mobile : ${user.mobileNumber}',
+                                            fontSize: FontSize.k18FontSize),
                                         AppSpaces.v10,
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             AppButton(
-                                              width: 0.35.screenWidth,
-                                              titleSize: FontSize.k18FontSize,
+                                              width: 0.40.screenWidth,
+                                              titleSize: FontSize.k16FontSize,
                                               buttonColor: kColorUserRole,
                                               onPressed: () {
                                                 Get.to(
@@ -145,8 +147,8 @@ class UserScreen extends StatelessWidget {
                                               title: 'User Role',
                                             ),
                                             AppButton(
-                                              width: 0.35.screenWidth,
-                                              titleSize: FontSize.k18FontSize,
+                                              width: 0.40.screenWidth,
+                                              titleSize: FontSize.k16FontSize,
                                               buttonColor: kColorUserRight,
                                               onPressed: () {
                                                 Get.to(

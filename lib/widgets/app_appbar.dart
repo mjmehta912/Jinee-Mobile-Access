@@ -31,7 +31,7 @@ class AppAppbar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: titleStyle ??
             TextStyles.kSemiBoldMontserrat(
-              fontSize: FontSize.k24FontSize,
+              fontSize: FontSize.k20FontSize,
               color: kColorTextPrimary,
             ),
       ),

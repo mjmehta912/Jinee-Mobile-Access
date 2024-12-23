@@ -141,13 +141,16 @@ class _AppDatePickerFieldState extends State<AppDatePickerField> {
         hintText: widget.hintText,
         hintStyle: TextStyles.kMediumMontserrat(
           color: kColorTextSecondary,
+          fontSize: FontSize.k16FontSize,
         ),
         labelText: widget.labelText,
         labelStyle: TextStyles.kMediumMontserrat(
           color: kColorTextSecondary,
+          fontSize: FontSize.k16FontSize,
         ),
         floatingLabelStyle: TextStyles.kMediumMontserrat(
           color: widget.themeColor!,
+          fontSize: FontSize.k16FontSize,
         ),
         errorStyle: TextStyles.kRegularMontserrat(
           color: Colors.redAccent,
@@ -166,6 +169,7 @@ class _AppDatePickerFieldState extends State<AppDatePickerField> {
       ),
       style: TextStyles.kSemiBoldMontserrat(
         color: widget.themeColor!,
+        fontSize: FontSize.k18FontSize,
       ),
       cursorColor: widget.themeColor,
       cursorHeight: 25,

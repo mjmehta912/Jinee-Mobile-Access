@@ -63,13 +63,16 @@ class AppTextFormField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyles.kMediumMontserrat(
           color: kColorTextSecondary,
+          fontSize: FontSize.k16FontSize,
         ),
         labelText: labelText,
         labelStyle: TextStyles.kMediumMontserrat(
           color: kColorTextSecondary,
+          fontSize: FontSize.k16FontSize,
         ),
         floatingLabelStyle: TextStyles.kMediumMontserrat(
           color: themeColor!,
+          fontSize: FontSize.k16FontSize,
         ),
         errorStyle: TextStyles.kRegularMontserrat(
           color: Colors.redAccent,
@@ -80,6 +83,7 @@ class AppTextFormField extends StatelessWidget {
       ),
       style: TextStyles.kSemiBoldMontserrat(
         color: themeColor!,
+        fontSize: FontSize.k18FontSize,
       ),
       cursorColor: themeColor,
       cursorHeight: 20,

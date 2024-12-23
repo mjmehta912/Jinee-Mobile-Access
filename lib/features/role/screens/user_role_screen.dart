@@ -46,11 +46,11 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
             title: 'User Roles',
             actions: [
               AppButton(
-                width: 0.25.screenWidth,
+                width: 0.30.screenWidth,
                 buttonColor: kColorUserRole,
                 height: 35,
                 title: '+ Add',
-                titleSize: FontSize.k18FontSize,
+                titleSize: FontSize.k16FontSize,
                 onPressed: () {
                   Get.to(
                     () => AddEditUserRoleScreen(
@@ -106,7 +106,7 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                               children: [
                                 AppCardText(
                                   title: userRole.coName,
-                                  fontSize: FontSize.k24FontSize,
+                                  fontSize: FontSize.k22FontSize,
                                 ),
                                 AppCardText(
                                   title:
@@ -114,23 +114,29 @@ class _UserRoleScreenState extends State<UserRoleScreen> {
                                             (ut) =>
                                                 ut.value == userRole.userType,
                                           ).key}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 AppCardText(
                                   title: 'SE Code : ${userRole.secodes}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 AppCardText(
                                   title: 'P Code : ${userRole.pcodes}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 AppCardText(
                                   title:
                                       'Ledger Start : ${userRole.ledgerStart != null ? DateFormat('dd-MM-yyyy').format(userRole.ledgerStart!) : null}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 AppCardText(
                                   title:
                                       'Ledger End : ${userRole.ledgerEnd != null ? DateFormat('dd-MM-yyyy').format(userRole.ledgerEnd!) : null}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 AppCardText(
                                   title: 'App Access : ${userRole.appAccess}',
+                                  fontSize: FontSize.k18FontSize,
                                 ),
                                 const Row(),
                               ],
