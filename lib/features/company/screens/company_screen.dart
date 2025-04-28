@@ -37,8 +37,8 @@ class CompanyScreen extends StatelessWidget {
                 AppButton(
                   width: 0.30.screenWidth,
                   height: 35,
-                  title: '+ Add',
-                  titleSize: FontSize.k16FontSize,
+                  title: 'Add',
+                  titleSize: FontSize.k14FontSize,
                   onPressed: () {
                     Get.to(
                       () => const AddEditCompanyScreen(

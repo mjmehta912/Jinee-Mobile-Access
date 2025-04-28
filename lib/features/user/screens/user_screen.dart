@@ -39,8 +39,8 @@ class UserScreen extends StatelessWidget {
                   width: 0.30.screenWidth,
                   height: 35,
                   buttonColor: kColorSecondary,
-                  title: '+ Add',
-                  titleSize: FontSize.k18FontSize,
+                  title: 'Add',
+                  titleSize: FontSize.k14FontSize,
                   onPressed: () {
                     Get.to(
                       () => const AddEditUserScreen(
@@ -131,7 +131,7 @@ class UserScreen extends StatelessWidget {
                                           children: [
                                             AppButton(
                                               width: 0.40.screenWidth,
-                                              titleSize: FontSize.k16FontSize,
+                                              titleSize: FontSize.k14FontSize,
                                               buttonColor: kColorUserRole,
                                               onPressed: () {
                                                 Get.to(
@@ -144,11 +144,11 @@ class UserScreen extends StatelessWidget {
                                                   ),
                                                 );
                                               },
-                                              title: 'User Role',
+                                              title: 'Role',
                                             ),
                                             AppButton(
                                               width: 0.40.screenWidth,
-                                              titleSize: FontSize.k16FontSize,
+                                              titleSize: FontSize.k14FontSize,
                                               buttonColor: kColorUserRight,
                                               onPressed: () {
                                                 Get.to(
@@ -162,7 +162,7 @@ class UserScreen extends StatelessWidget {
                                                   ),
                                                 );
                                               },
-                                              title: 'User Rights',
+                                              title: 'Rights',
                                             ),
                                           ],
                                         ),

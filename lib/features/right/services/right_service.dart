@@ -8,7 +8,7 @@ class RightService {
     required int userId,
   }) async {
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/User/userAccess?userId=$userId',
+      'https://jineeapp.jineecs.in/api/User/userAccess?userId=$userId',
     );
 
     const token =
@@ -41,7 +41,7 @@ class RightService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/User/setAccess',
+      'https://jineeapp.jineecs.in/api/User/setAccess',
     );
 
     const token =

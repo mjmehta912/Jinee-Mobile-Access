@@ -5,7 +5,7 @@ import 'package:jinee_mobile_access/features/company/models/company_dm.dart';
 class CompanyService {
   static Future<List<CompanyDm>> fetchCompanies() async {
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/company',
+      'https://jineeapp.jineecs.in/api/access/company',
     );
 
     final response = await http.get(url);
@@ -38,7 +38,7 @@ class CompanyService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/updatecompany',
+      'https://jineeapp.jineecs.in/api/access/updatecompany',
     );
 
     final response = await http.post(
@@ -77,7 +77,7 @@ class CompanyService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/addcompany',
+      'https://jineeapp.jineecs.in/api/access/addcompany',
     );
 
     final response = await http.post(

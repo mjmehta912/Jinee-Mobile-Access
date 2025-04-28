@@ -5,7 +5,7 @@ import 'package:jinee_mobile_access/features/user/models/user_dm.dart';
 class UserService {
   static Future<List<UserDm>> fetcUsers() async {
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/user',
+      'https://jineeapp.jineecs.in/api/access/user',
     );
 
     final response = await http.get(url);
@@ -40,7 +40,7 @@ class UserService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/updateuser',
+      'https://jineeapp.jineecs.in/api/access/updateuser',
     );
 
     final response = await http.post(
@@ -81,7 +81,7 @@ class UserService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/adduser',
+      'https://jineeapp.jineecs.in/api/access/adduser',
     );
 
     final response = await http.post(

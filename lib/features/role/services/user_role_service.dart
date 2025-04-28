@@ -7,7 +7,7 @@ class UserRoleService {
     required int userId,
   }) async {
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/userRole?userId=$userId',
+      'https://jineeapp.jineecs.in/api/access/userRole?userId=$userId',
     );
 
     final response = await http.get(url);
@@ -46,7 +46,7 @@ class UserRoleService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/updateUserRole',
+      'https://jineeapp.jineecs.in/api/access/updateUserRole',
     );
 
     final response = await http.post(
@@ -91,7 +91,7 @@ class UserRoleService {
     };
 
     final url = Uri.parse(
-      'http://jineeapp.jineecs.in/api/access/addUserRole',
+      'https://jineeapp.jineecs.in/api/access/addUserRole',
     );
 
     final response = await http.post(
