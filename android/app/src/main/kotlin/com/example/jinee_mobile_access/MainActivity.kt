@@ -1,4 +1,4 @@
-package com.example.jinee_mobile_access
+package com.jinee.jinee_mobile_access
 
 import io.flutter.embedding.android.FlutterActivity
 
